@@ -6,7 +6,7 @@ penup()
 goto(-140, 140)
 
 for step in range(16):
-    write(step)
+    write(step, align='center')
     right(90)
     forward(10)
     pendown()
@@ -16,39 +16,61 @@ for step in range(16):
     left(90)
     forward(20)
 
-#turtles
-
 ada = Turtle()
 ada.color('red')
 ada.shape('turtle')
 ada.penup()
-ada.goto(-160, 100)
+ada.goto(-160,100)
 ada.pendown()
+ada.right(360)
 
-bob = Turtle()
-bob.color('blue')
-bob.shape('turtle')
-bob.penup()
-bob.goto(-160, 70)
-bob.pendown()
+adb = Turtle()
+adb.color('blue')
+adb.shape('turtle')
+adb.penup()
+adb.goto(-160,70)
+adb.pendown()
+adb.right(360)
 
-mil  = Turtle()
-mil.color('yellow')
-mil.shape('turtle')
-mil.penup()
-mil.goto(-160, 40)
-mil.pendown()
+adz = Turtle()
+adz.color('green')
+adz.shape('turtle')
+adz.penup()
+adz.goto(-160,40)
+adz.pendown()
+adz.right(360)
 
-sel  = Turtle()
-sel.color('green')
-sel.shape('turtle')
-sel.penup()
-sel.goto(-160, 10)
-sel.pendown()
-
+adt = Turtle()
+adt.color('grey')
+adt.shape('turtle')
+adt.penup()
+adt.goto(-160,10)
+adt.pendown()
+adt.right(360)
 
 for turn in range(100):
+    
     ada.forward(randint(1,5))
-    bob.forward(randint(1,5))
-    mil.forward(randint(1,5))
-    sel.forward(randint(1,5))
+    adb.forward(randint(1,5))
+    adz.forward(randint(1,5))
+    adt.forward(randint(1,5))
+
+    
+    if ada.xcor() >= 140:
+        winner = ada
+        break
+    elif adb.xcor() >= 140:
+        winner = adb
+        break
+    elif adz.xcor() >= 140:
+        winner = adz
+        break
+    elif adt.xcor() >= 140:
+        winner = adt
+        break
+
+if winner:
+    print("The winner is the turtle with color:", winner.color()[0])
+
+done()
+
